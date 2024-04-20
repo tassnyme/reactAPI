@@ -14,11 +14,26 @@ function UserList() {
 
     fetchData(); 
   }, []);
-
+  console.log(listOfUser)
   return (
     <div>
-      {listOfUser.map((item) => <><h1>{item.name}</h1> <h5>{item.username}</h5> <hr />
-      </>)}
+      {
+         <table>
+          <tr>
+            <th>Name</th>
+            <th>username</th>
+            <th>company</th>
+            <th>phone</th>
+          </tr>
+          {listOfUser.map((el,index)=><tr key = {index}>
+            <td>{`${el.name}`}</td>
+            <td>{el.username}</td>
+            <td>{el.company.name}</td>
+            <td>{el.phone}</td>
+          </tr>)}
+         </table>
+      }
+      
     </div>
   );
 }
